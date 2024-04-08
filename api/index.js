@@ -16,7 +16,8 @@ require('dotenv').config();
 const salt = bcrypt.genSaltSync(10);
 const secret = process.env.JWT_SECRET;
 
-app.use(cors({credentials:true,origin:'http://localhost:3000'}));
+// app.use(cors({credentials:true,origin:'http://localhost:3000'}));
+app.use(cors({credentials:true,origin:true}));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
@@ -155,6 +156,11 @@ app.get('/post/:id', async (req, res) => {
   const postDoc = await Post.findById(id).populate('author', ['username']);
   res.json(postDoc);
 })
+
+app.get("/", (req, res)=>{
+  res.json("server");
+})
+
 
 app.listen(4000, ()=>{  console.log("server running 4000")});
 
