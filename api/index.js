@@ -37,6 +37,9 @@ async function main() {
 main().catch((err) => { console.log(err); })
 
 
+app.get("/", (req, res)=>{
+  res.json("server");
+})
 
 app.post('/register', async (req,res) => {
   const {username,password} = req.body;
@@ -157,9 +160,6 @@ app.get('/post/:id', async (req, res) => {
   res.json(postDoc);
 })
 
-app.get("/", (req, res)=>{
-  res.json("server");
-})
 
 
 app.listen(4000, ()=>{  console.log("server running 4000")});
