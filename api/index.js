@@ -9,7 +9,7 @@ const app = express();
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const multer = require('multer');
-const uploadMiddleware = multer({ dest: 'uploads/' });
+// const uploadMiddleware = multer({ dest: 'uploads/' });
 const fs = require('fs');
 require('dotenv').config();
 
@@ -25,7 +25,8 @@ app.use(cors(corsConfig));
 
 app.use(express.json());
 app.use(cookieParser());
-// app.use('/uploads', express.static(__dirname + '/uploads'));
+app.use('/uploads', express.static(__dirname + '/uploads'));
+
 
 
 async function main() {
