@@ -23,23 +23,23 @@ const corsConfig = {
 
 app.use(cors(corsConfig));
 
-app.use(express.json());
-app.use(cookieParser());
-app.use('/uploads', express.static(__dirname + '/uploads'));
+// app.use(express.json());
+// app.use(cookieParser());
+// app.use('/uploads', express.static(__dirname + '/uploads'));
 
 
-async function main() {
+// async function main() {
   
-  await mongoose.connect( process.env.MONGODB_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-  });
-  console.log("Connected to MONGODB!!");
-};
+//   await mongoose.connect( process.env.MONGODB_URL, {
+//       useNewUrlParser: true,
+//       useUnifiedTopology: true,
+//   });
+//   console.log("Connected to MONGODB!!");
+// };
 
  
 
-main().catch((err) => { console.log(err); })
+// main().catch((err) => { console.log(err); })
 
 
 app.get("/", (req, res)=>{
