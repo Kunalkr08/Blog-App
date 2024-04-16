@@ -78,17 +78,17 @@ app.post('/login', async (req,res) => {
   }
 });
 
-// app.get('/profile', (req,res) => {
-//   const {token} = req.cookies;
-//   jwt.verify(token, secret, {}, (err,info) => {
-//     if (err) throw err;
-//     res.json(info);
-//   });
-// });
+app.get('/profile', (req,res) => {
+  const {token} = req.cookies;
+  jwt.verify(token, secret, {}, (err,info) => {
+    if (err) throw err;
+    res.json(info);
+  });
+});
 
-// app.post('/logout', (req,res) => {
-//   res.cookie('token', '').json('ok');
-// });
+app.post('/logout', (req,res) => {
+  res.cookie('token', '').json('ok');
+});
 
 
 // app.post('/post', uploadMiddleware.single('file'), async (req,res) => {
@@ -149,21 +149,21 @@ app.post('/login', async (req,res) => {
 
 // });
 
-// app.get('/post', async (req,res) => {
-//   res.json(
-//     await Post.find()
-//       .populate('author', ['username'])
-//       .sort({createdAt: -1})
-//       .limit(20)
-//   );
-// });
+app.get('/post', async (req,res) => {
+  res.json(
+    await Post.find()
+      .populate('author', ['username'])
+      .sort({createdAt: -1})
+      .limit(20)
+  );
+});
 
 
-// app.get('/post/:id', async (req, res) => {
-//   const {id} = req.params;
-//   const postDoc = await Post.findById(id).populate('author', ['username']);
-//   res.json(postDoc);
-// })
+app.get('/post/:id', async (req, res) => {
+  const {id} = req.params;
+  const postDoc = await Post.findById(id).populate('author', ['username']);
+  res.json(postDoc);
+})
 
 
 
