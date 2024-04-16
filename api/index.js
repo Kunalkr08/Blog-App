@@ -6,15 +6,15 @@ const User = require('./models/User');
 const Post = require('./models/Post');
 const bcrypt = require('bcryptjs');
 const app = express();
-// const jwt = require('jsonwebtoken');
-// const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
 // const multer = require('multer');
 // const uploadMiddleware = multer({ dest: 'uploads/' });
-// const fs = require('fs');
-// require('dotenv').config();
+const fs = require('fs');
+require('dotenv').config();
 
-// const salt = bcrypt.genSaltSync(10);
-// const secret = process.env.JWT_SECRET;
+const salt = bcrypt.genSaltSync(10);
+const secret = process.env.JWT_SECRET;
 const corsConfig = {
       origin: true,
       credentials: true,
