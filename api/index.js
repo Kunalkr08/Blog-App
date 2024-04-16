@@ -26,7 +26,7 @@ app.use(cors(corsConfig));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
-const uploadMiddleware = multer({ dest: 'uploads/' });
+const uploadMiddleware = multer({ dest: '/tmp/' });
 
 
 async function main() {
