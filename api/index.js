@@ -15,13 +15,14 @@ require('dotenv').config();
 
 const salt = bcrypt.genSaltSync(10);
 const secret = process.env.JWT_SECRET;
+const corsConfig = {
+      origin: "*",
+      credentials: true,
+      methods: ["GET", "POST", "PUT", "DELETE"],
+};
 
-app.use(cors({
-
-    origin: true,
-    methods: ["GET", "POST"],
-    credentials: true
-}));
+app.options("", cors(corsConfig));
+app.use(cors(corsConfig));
 
 app.use(express.json());
 app.use(cookieParser());
