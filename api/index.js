@@ -18,10 +18,9 @@ const secret = process.env.JWT_SECRET;
 const corsConfig = {
       origin: "*",
       credentials: true,
-      methods: ["GET", "POST", "PUT", "DELETE"],
+      methods: ["GET", "POST", "PUT"],
 };
 
-app.options("/login", cors(corsConfig));
 app.use(cors(corsConfig));
 
 app.use(express.json());
