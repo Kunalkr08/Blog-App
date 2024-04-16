@@ -16,7 +16,7 @@ require('dotenv').config();
 const salt = bcrypt.genSaltSync(10);
 const secret = process.env.JWT_SECRET;
 const corsConfig = {
-      origin: "*",
+      origin: true,
       credentials: true,
       methods: ["GET", "POST", "PUT", "DELETE"],
 };
