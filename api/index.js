@@ -21,7 +21,7 @@ const corsConfig = {
       methods: ["GET", "POST", "PUT", "DELETE"],
 };
 
-app.options("/", cors(corsConfig));
+app.options("/login", cors(corsConfig));
 app.use(cors(corsConfig));
 
 app.use(express.json());
